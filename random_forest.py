@@ -48,3 +48,13 @@ new_data = df[['Open','High','Low','Volume']].tail(1)
 prediction = model.predict(new_data)
 print('The model predicts the last row or day to be:', prediction)
 print('Actual valueis:', df[['Close']].tail(1).values[0][0])
+
+# Define the predicted and actual values
+predicted_value = prediction[0]
+actual_value = df[['Close']].tail(1).values[0][0]
+
+# Create a bar plot
+plt.bar(['Predicted', 'Actual'], [predicted_value, actual_value])
+plt.title('Predicted vs Actual Closing Stock Price')
+plt.ylabel('Closing Price ($)')
+plt.show()
